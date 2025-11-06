@@ -1,59 +1,84 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkyBlue Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Dashboard - SkyBlue Web</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="dashboard">
-    <header>
-        <h1>🌤️ SkyBlue Dashboard</h1>
-        <nav>
-            <button onclick="showPage('home')">Halaman Utama</button>
-            <button onclick="showPage('info')">Informasi</button>
-            <button onclick="showPage('contact')">Contact</button>
-            <button onclick="logout()">Logout</button>
-        </nav>
-    </header>
+<body class="dashboard-page">
+  <header>
+    <h1>🌤️ SkyBlue Dashboard</h1>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="showPage('home')" class="active" id="homeLink">Home</a></li>
+        <li><a href="#" onclick="showPage('info')" id="infoLink">Info</a></li>
+        <li><a href="#" onclick="showPage('contact')" id="contactLink">Contact</a></li>
+        <li><a href="#" onclick="showPage('resources')" id="resourcesLink">Resources</a></li>
+        <li><a href="index.html" id="logout" class="logout-btn">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-        <section id="home" class="page active">
-            <h2>Selamat Datang di Dashboard</h2>
-            <p>Ini adalah halaman utama dari SkyBlue Dashboard. Gunakan menu di atas untuk navigasi.</p>
-        </section>
+  <main id="content-area">
+    <!-- Halaman default -->
+    <section id="home" class="page active">
+      <h2>Selamat Datang di SkyBlue Web 🌤️</h2>
+      <p>Ini adalah dashboard utama Anda. Klik menu di atas untuk menjelajahi halaman lain tanpa reload!</p>
+    </section>
 
-        <section id="info" class="page">
-            <h2>Informasi</h2>
-            <p>Website ini dibuat untuk latihan membuat website statis dengan tampilan biru langit dan font Super Joyful.</p>
-        </section>
+    <section id="info" class="page">
+      <h2>Informasi</h2>
+      <p>Website ini dibuat menggunakan HTML, CSS, dan JavaScript untuk membuat tampilan dinamis tanpa backend.</p>
+    </section>
 
-        <section id="contact" class="page">
-            <h2>Contact</h2>
-            <p>Hubungi kami melalui platform berikut:</p>
-            <div class="socials">
-                <a href="https://wa.me/6281234567890" target="_blank">
-                    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
-                </a>
-                <a href="https://www.tiktok.com/" target="_blank">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok">
-                </a>
-                <a href="https://www.instagram.com/" target="_blank">
-                    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
-                </a>
-            </div>
-        </section>
-    </main>
+    <section id="contact" class="page">
+      <h2>Kontak Kami</h2>
+      <p>Hubungi kami melalui platform berikut:</p>
+      <div class="social-links">
+        <a href="https://wa.me/6281234567890" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+        </a>
+        <a href="https://www.tiktok.com/@username" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" />
+        </a>
+        <a href="https://www.instagram.com/username" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+        </a>
+      </div>
+    </section>
 
-    <script>
-        function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-        }
+    <section id="resources" class="page">
+      <h2>Resources</h2>
+      <p>Halaman ini berisi tautan atau file tambahan yang bisa kamu tambahkan sesuai kebutuhan.</p>
+    </section>
+  </main>
 
-        function logout() {
-            window.location.href = "index.html";
-        }
-    </script>
+  <footer>
+    <p>© 2025 SkyBlue Web. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Proteksi login
+    if (localStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "index.html";
+    }
+
+    // Logout
+    document.getElementById("logout").addEventListener("click", function () {
+      localStorage.removeItem("loggedIn");
+    });
+
+    // Fungsi ganti halaman
+    function showPage(pageId) {
+      const pages = document.querySelectorAll(".page");
+      const links = document.querySelectorAll("nav a");
+      pages.forEach(p => p.classList.remove("active"));
+      links.forEach(l => l.classList.remove("active"));
+
+      document.getElementById(pageId).classList.add("active");
+      document.getElementById(pageId + "Link").classList.add("active");
+    }
+  </script>
 </body>
 </html>
