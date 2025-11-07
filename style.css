@@ -1,4 +1,4 @@
-@import url('https://www.dafont.com/piperland.font');
+@import url('https://fonts.google.com/specimen/Momo+Trust+Display');
 
 :root{
   --sky1: #b3e5fc;
@@ -9,7 +9,7 @@
 }
 
 body{
-  font-family: 'Piperland', cursive;
+  font-family: 'Momo Trust Display', cursive;
   margin:0;
   background-color: var(--sky1);
   color: var(--text);
