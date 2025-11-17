@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
+/* VIDEO BACKGROUND */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Agar memenuhi layar */
+  z-index: -1;       /* Agar berada di belakang semua elemen */
+  pointer-events: none; /* Biar tidak mengganggu klik */
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #b3e5fc;
