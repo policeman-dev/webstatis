@@ -1,51 +1,60 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SkyBlue Web - Login</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MU Fan Web - Login</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="login-page">
-
+<body>
+  <!-- Video background -->
   <video autoplay loop muted playsinline id="bg-video">
-  <source src="videos/background.mp4" type="video/mp4">
-</video>
+    <source src="videos/background.mp4" type="video/mp4">
+    <!-- fallback text -->
+  </video>
 
   <header>
-    <h1>☃️RAFA P WEBTEST</h1>
+    <h1>Manchester United Fan Web</h1>
   </header>
 
   <main>
     <div class="login-box">
-      <h2>Login Page</h2>
+      <h2>Login Pengunjung</h2>
       <form onsubmit="return login()">
-        <label>Username</label>
-        <input type="text" id="username" placeholder="Masukkan username" required />
-        <label>Password</label>
-        <input type="password" id="password" placeholder="Masukkan password" required />
-        <button type="submit">Masuk</button>
+        <label for="username">Username</label>
+        <input id="username" type="text" placeholder="Masukkan username" required>
+
+        <label for="password">Password</label>
+        <input id="password" type="password" placeholder="Masukkan password" required>
+
+        <button type="submit" id="loginBtn">Masuk</button>
       </form>
+      <p class="note">Contoh kredensial: <strong>admin / 123</strong></p>
     </div>
   </main>
 
-  <script>
-    function login() {
-      const user = document.getElementById("username").value.trim();
-      const pass = document.getElementById("password").value.trim();
+  <footer>
+    <p>© 2025 — Tugas Sekolah: Manchester United Fan Web</p>
+  </footer>
 
-      if (user === "admin" && pass === "123") {
-        localStorage.setItem("loggedIn", "true");
-        window.location.href = "dashboard.html";
-        return false;
-      } else {
-        alert("Username atau password salah!");
-        return false;
-      }
+  <script>
+    // Redirect to dashboard jika sudah login
+    if (localStorage.getItem('loggedIn') === 'true') {
+      window.location.href = 'dashboard.html';
     }
 
-    if (localStorage.getItem("loggedIn") === "true") {
-      window.location.href = "dashboard.html";
+    function login() {
+      const user = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value.trim();
+      // Kredensial demo
+      if (user === 'admin' && pass === '123') {
+        localStorage.setItem('loggedIn','true');
+        window.location.href = 'dashboard.html';
+        return false;
+      } else {
+        alert('Username atau password salah!');
+        return false;
+      }
     }
   </script>
 </body>
