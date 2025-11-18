@@ -96,13 +96,15 @@ main{ text-align:center; padding:30px; min-height:60vh; }
   border-radius:10px;
 }
 .login-box button{
-  background-color: var(--accent);
-  color:white;
-  border:none;
-  padding:10px 20px;
-  border-radius:10px;
-  cursor:pointer;
+  background-color: maroon;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(128, 0, 0, 0.7); /* efek glow maroon */
 }
+
 .login-box button:hover{ background-color:#0288d1; }
 
 /* Sosial media */
