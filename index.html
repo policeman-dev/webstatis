@@ -16,6 +16,46 @@
     <h1>☃️RAFA P WEBTEST</h1>
   </header>
 
+<button id="musicBtn" onclick="toggleMusic()">
+    <img src="images/mu-logo.png" alt="MU Logo">
+</button>
+
+<audio id="player"></audio>
+
+<script>
+    let songs = [
+        "audio/lagu1.mp3",
+        "audio/lagu2.mp3",
+        "audio/lagu3.mp3"
+    ];
+
+    let player = document.getElementById("player");
+    let currentIndex = 0;
+    let isPlaying = false;
+    let btn = document.getElementById("musicBtn");
+
+    player.src = songs[currentIndex];
+
+    player.addEventListener("ended", function () {
+        currentIndex = (currentIndex + 1) % songs.length;
+        player.src = songs[currentIndex];
+        player.play();
+    });
+
+    function toggleMusic() {
+        if (!isPlaying) {
+            player.play();
+            isPlaying = true;
+            btn.classList.add("spin");
+        } else {
+            player.pause();
+            isPlaying = false;
+            btn.classList.remove("spin");
+        }
+    }
+</script>
+
+  
   <main>
     <div class="login-box">
       <h2>Login Page</h2>
